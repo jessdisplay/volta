@@ -262,35 +262,15 @@ a{color:inherit}
 <div class="livery" aria-hidden="true"></div>
 <footer class="fine label"><span><a href="../">Volta. Italian robot kitchen.</a></span><span>Demo tracking, sample footage</span></footer>
 <script>
+window.botMood=function(svg,m){ if(!svg) return; svg.querySelectorAll('.mood').forEach(g=>g.setAttribute('opacity',g.classList.contains('mood-'+m)?'1':'0')); };
 (function(){
-  const S=[
-    {t:"Order in",d:"Your ticket lands at the pass",v:"vid/bar-arm.mp4"},
-    {t:"On the line",d:"The robot arm gets to work",v:"vid/line-arm.mp4"},
-    {t:"Boxed",d:"Sealed with the 365 roundel",i:"img/pack-box.jpg"},
-    {t:"Out the door",d:"The service robot runs it to the shelf",v:"vid/service-robot.mp4"},
-    {t:"On its way",d:"With your driver",i:"img/driver-car.jpg"}];
-  const steps=document.getElementById("steps"), v=document.getElementById("feed-v"), im=document.getElementById("feed-i"),
-        ct=document.getElementById("cap-t"), cd=document.getElementById("cap-d"), meter=document.getElementById("meter"), clock=document.getElementById("clock");
-  if(!steps) return;
-  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches, DWELL=5200;
-  let k=0, timer=null, stamps=[];
-  steps.innerHTML=S.map((x,i)=>`<li><span class="n">${i+1}</span><span class="t">${x.t}</span><span class="s"></span></li>`).join("");
-  const fmt=d=>d.toLocaleTimeString("en-AU",{hour:"numeric",minute:"2-digit"});
-  function show(i){
-    k=i; const x=S[i]; ct.textContent=x.t; cd.textContent=x.d;
-    if(x.v){ im.hidden=true; v.hidden=false; if(!v.src.endsWith(x.v)){ v.src=x.v; } if(!reduce){ v.play().catch(()=>{}); } }
-    else { v.pause(); v.hidden=true; im.src=x.i; im.hidden=false; }
-    if(!stamps[i]) stamps[i]=new Date();
-    [...steps.children].forEach((li,j)=>{ li.className=j<i?"done":(j===i?"now":""); li.querySelector(".s").textContent=j<=i&&stamps[j]?fmt(stamps[j]):""; });
-    meter.style.width=((i+1)/S.length*100)+"%";
-    if(window.botMood) botMood(document.querySelector(".tracker-bot"),["ring","excited","happy","wink","happy"][i]);
-  }
-  function run(){ clearInterval(timer); stamps=[]; show(0); timer=setInterval(()=>{ if(k<S.length-1) show(k+1); else clearInterval(timer); },DWELL); }
-  document.getElementById("replay").addEventListener("click",run);
-  setInterval(()=>{ clock.textContent=new Date().toLocaleTimeString("en-AU",{hour12:false}); },1000);
-  clock.textContent=new Date().toLocaleTimeString("en-AU",{hour12:false});
-  const io=new IntersectionObserver(es=>{ if(es.some(e=>e.isIntersecting)){ run(); io.disconnect(); } },{threshold:.35});
-  show(0); io.observe(document.getElementById("live"));
+  const bot=document.querySelector('svg.pilot'); if(!bot) return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const seq=['ring','happy','ring','excited','ring','wink']; let i=0, timer=null;
+  function wink(){ botMood(bot,'wink'); setTimeout(()=>botMood(bot,'ring'),900); }
+  function start(){ clearInterval(timer); setTimeout(wink,350); i=0; timer=setInterval(()=>{ i=(i+1)%seq.length; botMood(bot,seq[i]); },2200); }
+  function stop(){ clearInterval(timer); botMood(bot,'ring'); }
+  new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting?start():stop()),{threshold:.4}).observe(bot);
 })();
 </script>
 <script>
