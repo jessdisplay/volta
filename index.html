@@ -196,7 +196,14 @@ a{color:inherit}
 .bot .mood{transition:opacity .12s}
 .tracker-head{display:flex;align-items:center;gap:18px}
 .tracker-bot{width:clamp(84px,9vw,120px);height:auto;flex:none}
-.drive img{will-change:transform}
+.drive-car{position:relative;will-change:transform}
+.drive-car img{display:block}
+.car-fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.car-fx .fx-wink,.car-fx .fx-bulb{opacity:0;transition:opacity .08s}
+.drive-car.wink .fx-wink{opacity:1}
+.drive-car.flash .fx-bulb{animation:bulb .9s steps(1) 1}
+@keyframes bulb{0%{opacity:1}25%{opacity:0}50%{opacity:1}75%{opacity:0}}
+
 
 @media (max-width:900px){
   .nav ul{display:none}
@@ -349,7 +356,7 @@ a{color:inherit}
 </section>
 
 <section class="drive" aria-label="Delivery">
-  <img src="img/driver-car.jpg" alt="Illustration: the Volta robot driving a red 1960s racer numbered 365, a bowl of spaghetti strapped to the back" loading="lazy">
+  <div class="drive-car"><img src="img/driver-car.jpg" alt="Illustration: the Volta robot driving a red 1960s racer numbered 365, a bowl of spaghetti strapped to the back" loading="lazy"><svg class="car-fx" viewBox="0 0 2000 1116" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g class="fx-wink"><circle cx="1115" cy="356" r="21" fill="#2A221F"/><g fill="#EEE8DC"><circle cx="1131.4" cy="358.7" r="2.8"/><circle cx="1128.0" cy="355.2" r="2.8"/><circle cx="1122.2" cy="352.8" r="2.8"/><circle cx="1115.0" cy="352.0" r="2.8"/><circle cx="1107.8" cy="352.8" r="2.8"/><circle cx="1102.0" cy="355.2" r="2.8"/><circle cx="1098.6" cy="358.7" r="2.8"/></g></g><circle class="fx-bulb" cx="1259" cy="202" r="15" fill="#F6CD12"/></svg></div>
   <div class="corners"><span class="label">N°365<br>(delivery)</span><span class="label">Out of the kitchen<br>(and on its way)</span></div>
 </section>
 
@@ -407,9 +414,10 @@ a{color:inherit}
 
 <script>
 (function(){
-  const img=document.querySelector('.drive img'); if(!img) return;
+  const img=document.querySelector('.drive-car'); if(!img) return; let lastFx=0;
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const band=img.closest('.drive'); let ticking=false;
+  const band=img.closest('.drive');
+  img.addEventListener('mouseenter',()=>{ img.classList.add('wink','flash'); setTimeout(()=>img.classList.remove('wink','flash'),1100); }); let ticking=false;
   function frame(){
     ticking=false;
     const r=band.getBoundingClientRect(), vh=innerHeight;
@@ -417,6 +425,7 @@ a{color:inherit}
     const t=(p-0.5)*2, x=Math.sign(t)*Math.pow(Math.abs(t),3)*85;   // races in, eases through the middle, races out
     const speed=Math.abs(t), bob=Math.sin(p*60)*speed*4;
     img.style.transform=`translate(${x}%, ${bob}px) rotate(${-speed*2}deg)`;
+    if(speed<0.12 && performance.now()-lastFx>2500){ lastFx=performance.now(); img.classList.add('wink','flash'); setTimeout(()=>img.classList.remove('wink'),1100); setTimeout(()=>img.classList.remove('flash'),950); }
   }
   addEventListener('scroll',()=>{ if(!ticking){ ticking=true; requestAnimationFrame(frame); } },{passive:true});
   addEventListener('resize',frame); frame();
