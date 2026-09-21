@@ -26,5 +26,7 @@ BEFORE UPLOAD
      represent the real item and DoorDash rejects stock/third-party images, so a photo could be bounced
      at review (DoorDash 1 to 3 days, Uber up to 3). Replace with a real shoot when you can; the kit's
      sizes and filenames stay the same.
-  4. Name the arancini flavours, San Pellegrino and Bundaberg flavours in the app.
+  4. Drinks: photos for all five are in; confirm the San Pellegrino flavours match the photo, name the
+     third Bundaberg, and swap the lemonade glass for the brand you stock if it is canned.
+     Arancini: add the six flavours in menu.csv as a 'choose 3' modifier on Arancini (tre).
   5. Trade mark: file Volta in class 43 (+29/30) before launch.

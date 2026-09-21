@@ -4,12 +4,18 @@ Pasta,Bolognese,"Fresh egg pasta, slow-cooked beef ragu. Finished with Grana Pad
 Pasta,Al pesto,"Fresh egg pasta, basil pesto. Finished with Grana Padano.",18.00,menu-doordash-16x9/03-al-pesto.jpg,menu-ubereats-5x4/03-al-pesto.jpg,menu-square-1x1/03-al-pesto.jpg,Allergens from the recipe labels only (pesto: check nuts)
 Pasta,Polpette,"Fresh egg pasta, beef meatballs in napoli. Finished with Grana Padano.",20.00,menu-doordash-16x9/04-polpette.jpg,menu-ubereats-5x4/04-polpette.jpg,menu-square-1x1/04-polpette.jpg,Allergens from the recipe labels only
 Ravioli,Ravioli ai funghi,"Wild mushroom ravioli, brown butter and sage.",22.00,menu-doordash-16x9/05-ravioli-ai-funghi.jpg,menu-ubereats-5x4/05-ravioli-ai-funghi.jpg,menu-square-1x1/05-ravioli-ai-funghi.jpg,Allergens from the recipe labels only
-Ravioli,Ravioli di ossobuco,"Ravioli filled with slow-cooked ossobuco beef.",22.00,menu-doordash-16x9/06-ravioli-di-ossobuco.jpg,menu-ubereats-5x4/06-ravioli-di-ossobuco.jpg,menu-square-1x1/06-ravioli-di-ossobuco.jpg,Allergens from the recipe labels only
-Arancini,Arancini (tre),"Three arancini with a sauce.",9.00,menu-doordash-16x9/07-arancini-tre.jpg,menu-ubereats-5x4/07-arancini-tre.jpg,menu-square-1x1/07-arancini-tre.jpg,Name the flavours on the day; allergens from the labels
-Deals,Make it a meal,"Add three arancini and any drink to any pasta.",10.00,,,,Set as a modifier on each pasta
-Deals,Arancini + drink,"Three arancini and any drink.",12.00,,,,
-Drinks,San Pellegrino,,5.00,,,,Name the three flavours
-Drinks,Bundaberg,,6.00,,,,Name the three flavours
-Drinks,Coke,,4.00,,,,
-Drinks,Coke Zero,,4.00,,,,
-Drinks,Lemonade,,4.00,,,,
+Ravioli,Ravioli di ossobuco,Ravioli filled with slow-cooked ossobuco beef.,22.00,menu-doordash-16x9/06-ravioli-di-ossobuco.jpg,menu-ubereats-5x4/06-ravioli-di-ossobuco.jpg,menu-square-1x1/06-ravioli-di-ossobuco.jpg,Allergens from the recipe labels only
+Arancini,Arancini (tre),Three arancini with a sauce. Choose your three.,9.00,menu-doordash-16x9/07-arancini-tre.jpg,menu-ubereats-5x4/07-arancini-tre.jpg,menu-square-1x1/07-arancini-tre.jpg,Add the flavour modifier below; allergens from the labels
+"Arancini flavours (modifier, choose 3)",Bolognese,,0.00,,,,Allergens from the Moco label
+"Arancini flavours (modifier, choose 3)",Roast chicken and mushroom,,0.00,,,,Allergens from the Moco label
+"Arancini flavours (modifier, choose 3)",Pumpkin and goats cheese,,0.00,,,,Allergens from the Moco label
+"Arancini flavours (modifier, choose 3)",Italian tomato,,0.00,,,,Allergens from the Moco label
+"Arancini flavours (modifier, choose 3)",Smoky bacon and cheese,,0.00,,,,Allergens from the Moco label
+"Arancini flavours (modifier, choose 3)",Jalapeño chipotle and cheese,,0.00,,,,Allergens from the Moco label
+Deals,Make it a meal,Add three arancini and any drink to any pasta.,10.00,,,,Set as a modifier on each pasta
+Deals,Arancini + drink,Three arancini and any drink.,12.00,,,,
+Drinks,San Pellegrino,,5.00,menu-doordash-16x9/11-san-pellegrino.jpg,menu-ubereats-5x4/11-san-pellegrino.jpg,menu-square-1x1/11-san-pellegrino.jpg,"Confirm flavours match the photo (Aranciata, Limonata, Melograno e Arancia)"
+Drinks,Bundaberg,,6.00,menu-doordash-16x9/12-bundaberg.jpg,menu-ubereats-5x4/12-bundaberg.jpg,menu-square-1x1/12-bundaberg.jpg,Photo shows Ginger Beer and Sarsaparilla; name the third flavour
+Drinks,Coke,,4.00,menu-doordash-16x9/08-coke.jpg,menu-ubereats-5x4/08-coke.jpg,menu-square-1x1/08-coke.jpg,
+Drinks,Coke Zero,,4.00,menu-doordash-16x9/09-coke-zero.jpg,menu-ubereats-5x4/09-coke-zero.jpg,menu-square-1x1/09-coke-zero.jpg,Photo shows Coca-Cola Zero Sugar
+Drinks,Lemonade,,4.00,menu-doordash-16x9/10-lemonade.jpg,menu-ubereats-5x4/10-lemonade.jpg,menu-square-1x1/10-lemonade.jpg,Photo is a plain glass: swap for the brand you stock if it is canned
